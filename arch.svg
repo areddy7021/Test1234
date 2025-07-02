@@ -1,0 +1,123 @@
+<svg width="1250" height="920" viewBox="0 0 1250 920" xmlns="http://www.w3.org/2000/svg">
+  <!-- Created by an AI assistant -->
+  <defs>
+    <style>
+      .box { rx: 8; ry: 8; stroke: #333; stroke-width: 1.5; }
+      .bg-blue { fill: #e6f7ff; stroke: #91d5ff; }
+      .bg-green { fill: #f6ffed; stroke: #b7eb8f; }
+      .bg-orange { fill: #fff7e6; stroke: #ffd591; }
+      .bg-purple { fill: #f9f0ff; stroke: #d3adf7; }
+      .bg-red { fill: #fff1f0; stroke: #ffa39e; }
+      .bg-grey { fill: #fafafa; stroke: #d9d9d9; }
+      
+      .text-main { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; text-anchor: middle; dominant-baseline: middle; fill: #262626; }
+      .text-small { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px; text-anchor: middle; dominant-baseline: middle; fill: #595959; }
+      
+      .connector { fill: none; stroke: #595959; stroke-width: 1.5; }
+      .connector-text { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 12px; fill: #434343; text-anchor: middle; }
+
+      .group-box { fill: #f5f5f5; fill-opacity: 0.7; stroke: #bfbfbf; stroke-width: 1.5; stroke-dasharray: 6 4; rx: 15; ry: 15; }
+      .group-label { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #8c8c8c; text-anchor: middle; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#595959" />
+    </marker>
+  </defs>
+
+  <!-- Grouping Boxes -->
+  <rect x="15" y="140" width="260" height="300" class="group-box"/>
+  <text x="145" y="120" class="group-label">1. Ingestion</text>
+
+  <rect x="290" y="80" width="370" height="420" class="group-box"/>
+  <text x="475" y="60" class="group-label">2. Processing</text>
+
+  <rect x="290" y="515" width="370" height="200" class="group-box"/>
+  <text x="475" y="735" class="group-label">3. Storage</text>
+
+  <rect x="675" y="80" width="560" height="480" class="group-box"/>
+  <text x="955" y="60" class="group-label">4. Query Execution</text>
+  
+  <rect x="290" y="750" width="670" height="150" class="group-box"/>
+  <text x="625" y="915" class="group-label">5. Coordination</text>
+
+  <rect x="15" y="455" width="260" height="260" class="group-box"/>
+  <text x="145" y="735" class="group-label">6. Monitoring</text>
+
+  <!-- Components -->
+  <!-- Ingestion Sources -->
+  <rect x="50" y="170" width="190" height="60" class="box bg-red"/>
+  <text x="145" y="200" class="text-main">Kafka</text>
+  <rect x="50" y="350" width="190" height="60" class="box bg-orange"/>
+  <text x="145" y="380" class="text-main">S3 (Batch Source)</text>
+
+  <!-- Processing -->
+  <rect x="400" y="250" width="190" height="80" class="box bg-blue"/>
+  <text x="495" y="290" class="text-main">MiddleManager</text>
+  <rect x="400" y="110" width="190" height="60" class="box bg-green"/>
+  <text x="495" y="140" class="text-main">Overlord</text>
+  
+  <!-- Storage -->
+  <rect x="400" y="545" width="190" height="60" class="box bg-orange"/>
+  <text x="495" y="575" class="text-main">Deep Storage (S3)</text>
+  <rect x="400" y="635" width="190" height="60" class="box bg-blue"/>
+  <text x="495" y="665" class="text-main">Historical</text>
+
+  <!-- Query Path -->
+  <rect x="740" y="110" width="190" height="60" class="box bg-grey"/>
+  <text x="835" y="140" class="text-main">UI / API</text>
+  <rect x="980" y="110" width="190" height="60" class="box bg-purple"/>
+  <text x="1075" y="140" class="text-main">Router</text>
+  <rect x="860" y="250" width="190" height="80" class="box bg-purple"/>
+  <text x="955" y="290" class="text-main">Broker</text>
+
+  <!-- Coordination -->
+  <rect x="620" y="780" width="190" height="60" class="box bg-green"/>
+  <text x="715" y="810" class="text-main">Zookeeper</text>
+  <rect x="330" y="780" width="190" height="60" class="box bg-green"/>
+  <text x="425" y="810" class="text-main">Coordinator</text>
+
+  <!-- Monitoring -->
+  <rect x="50" y="545" width="190" height="100" class="box bg-grey"/>
+  <text x="145" y="575" class="text-main">Monitoring</text>
+  <text x="145" y="600" class="text-small">Hubble, Mosaic,</text>
+  <text x="145" y="618" class="text-small">Datadog</text>
+
+  <!-- Connectors -->
+  <!-- Ingestion Flow -->
+  <path d="M240,200 H 390" class="connector" marker-end="url(#arrow)"/>
+  <text x="315" y="190" class="connector-text">Real-time events</text>
+  <path d="M240,380 H 390" class="connector" marker-end="url(#arrow)"/>
+  <text x="315" y="370" class="connector-text">Batch data</text>
+
+  <!-- Processing Flow -->
+  <path d="M495,200 V 240" class="connector" marker-end="url(#arrow)"/>
+  <text x="495" y="225" class="connector-text" transform="rotate(90 495 225)">Tasks &amp; Mgmt</text>
+  <path d="M495,330 V 535" class="connector" marker-end="url(#arrow)"/>
+  <text x="495" y="432" class="connector-text" transform="rotate(90 495 432)">Immutable segments</text>
+  
+  <!-- Storage Flow -->
+  <path d="M495,605 V 625" class="connector" marker-end="url(#arrow)"/>
+  <text x="495" y="615" class="connector-text" transform="rotate(90 495 615)">Load segments</text>
+  
+  <!-- Query Flow -->
+  <path d="M930,140 H 970" class="connector" marker-end="url(#arrow)"/>
+  <text x="950" y="130" class="connector-text">Queries</text>
+  <path d="M1075,170 V 250 H 1050" class="connector" marker-end="url(#arrow)"/>
+  <path d="M860,290 H 590" class="connector" marker-end="url(#arrow)"/>
+  <text x="725" y="280" class="connector-text">Real-time queries</text>
+  <path d="M860,310 H 700 V 635 H 590" class="connector" marker-end="url(#arrow)"/>
+  <text x="730" y="470" class="connector-text">Persisted data queries</text>
+
+  <!-- Coordination Flow -->
+  <path d="M520,810 H 610" class="connector" marker-end="url(#arrow)"/>
+  <text x="565" y="800" class="connector-text">State Sync</text>
+  <path d="M495,170 V 200 C 495 450, 300 780, 425 780" class="connector" marker-end="url(#arrow)" stroke-dasharray="4 2"/>
+  <text x="360" y="600" class="connector-text">Segment distribution</text>
+  <path d="M425,770 V 695 H 495" class="connector" marker-end="url(#arrow)"/>
+  <path d="M620,810 H 580 V 140 H 590" class="connector" marker-end="url(#arrow)"/>
+  <text x="590" y="450" class="connector-text" transform="rotate(90 590 450)">State Sync</text>
+  
+  <!-- Monitoring Flow -->
+  <path d="M240,595 H 390" class="connector" marker-end="url(#arrow)"/>
+  <text x="315" y="585" class="connector-text">Metrics &amp; Health</text>
+</svg>
